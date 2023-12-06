@@ -6,8 +6,8 @@ body {
   font-family: sans-serif;
   font-size: 1.125rem;
   line-height: 1.4;
-  background-color: #f4f4f4;
-  color: #121224;
+  background-color: #121412;
+  color: #f4f4f4;
   font-weight: 300;
   margin: 0;
   letter-spacing: 0.8px;
@@ -15,8 +15,8 @@ body {
 }
 
 ::selection {
-  background-color: #121224;
-  color: #f4f4f4;
+  background-color: #f4f4f4;
+  color: #121214;
 }
 
 img,
@@ -46,7 +46,7 @@ p {
   margin: 0 0 0.4rem;
 }
 p strong {
-  color: #121224;
+  color: #f4f4f4;
 }
 p:last-child {
   margin: 0;
@@ -62,11 +62,12 @@ img {
 }
 
 a {
-  color: #121224;
+  color: #7070ff;
   text-decoration: none;
   transition: all 0.6s;
 }
 a:hover,
 a:focus {
-  color: #121244;
+  color: #9393fd;
+  transition: all 0.6s;
 }
