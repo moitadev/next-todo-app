@@ -1,15 +1,13 @@
-import { StyledContainer } from "./Container.style";
+'use client'
+
+import { StyledContainer } from './Container.style';
 
 type ContainerProps = {
-    children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
-const Container = ( {children}: ContainerProps ) => {
-    return(
-        <StyledContainer>
-            {children}
-        </StyledContainer>
-    );
-}
+const Container = ({ children }: ContainerProps) => {
+  return <StyledContainer>{children}</StyledContainer>;
+};
 
-export {Container}
+export { Container };

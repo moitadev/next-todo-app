@@ -1,11 +1,40 @@
-"use client"
+'use client';
 
-import { Container } from "@/common";
+import { Container, Item, TaskInput } from '@/common';
+import { useState } from 'react';
+import styled from 'styled-components';
+
+const StyledTitle = styled.h1`
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: bold;
+`;
+
+const TodoListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  max-width: 680px;
+  width: 100%;
+`;
 
 export default function Home() {
-  return(
+  
+  const [items, setItems] = useState<string[]>([])
+
+  const onAdd = (item: string) => {
+    setItems([item, ...items])
+  }
+
+  return (
     <Container>
-      <h1>Next Todo App</h1>      
+      <StyledTitle>Next Todo List App</StyledTitle>
+      <TodoListWrapper>
+        <TaskInput handleAdd={onAdd} />
+        {items.map((item: string, index: number) => (
+          <Item key={index} value={item} readOnly />
+        ))}
+      </TodoListWrapper>
     </Container>
-  )
+  );
 }
