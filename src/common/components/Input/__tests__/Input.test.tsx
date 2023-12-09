@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Item } from '..';
+import { Input } from '..';
 
 const itemList: string[] = ['task 1', 'task 2', 'task 3', 'task 4'];
 
 describe('Common: App Item input', () => {
   it('should render the todo list item with a task', async () => {
-    render(<Item value="Task to do" />);
+    render(<Input value="Task to do" />);
 
     const itemTask = await screen.findByDisplayValue('Task to do');
 
@@ -17,7 +17,7 @@ describe('Common: App Item input', () => {
     render(
       <div>
         {itemList.map((item: string, index: number) => (
-          <Item key={index} value={item} />
+          <Input key={index} value={item} />
         ))}
       </div>
     );

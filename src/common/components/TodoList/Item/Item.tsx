@@ -1,12 +1,19 @@
 'use client';
 
 import { ItemWrapper } from './Item.style';
-import { Input } from '@/common'
+import { Button, Input, InputProps } from '@/common';
 
-const Item = ({...props}): JSX.Element => {
+type ItemProps = {
+  onRemove: (index: number) => void;
+  index: number;
+  value: string;
+} & InputProps;
+
+const Item = ({onRemove, index, value, ...props}: ItemProps): JSX.Element => {
   return (
     <ItemWrapper>
-      <Input {...props} />
+      <Input value={value} {...props} />
+      <Button label="-" $bgColor="#F75143" onClick={() => onRemove(index)} />
     </ItemWrapper>
   );
 };

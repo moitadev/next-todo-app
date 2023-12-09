@@ -19,12 +19,20 @@ const TodoListWrapper = styled.div`
 `;
 
 export default function Home() {
+  const storedItems = JSON.parse(localStorage.getItem('items') ?? '[]');
   
-  const [items, setItems] = useState<string[]>([])
+  const [items, setItems] = useState<string[]>(storedItems)
 
   const onAdd = (item: string) => {
     setItems([item, ...items])
   }
+
+  const removeItem = (index: number) => {
+    const itemsCopy = items.slice();
+    itemsCopy.splice(index, 1);
+    
+    setItems(itemsCopy);
+  };
 
   return (
     <Container>
@@ -32,7 +40,7 @@ export default function Home() {
       <TodoListWrapper>
         <TaskInput handleAdd={onAdd} />
         {items.map((item: string, index: number) => (
-          <Item key={index} value={item} readOnly />
+          <Item key={index} index={index} onRemove={removeItem} value={item} readOnly />
         ))}
       </TodoListWrapper>
     </Container>
