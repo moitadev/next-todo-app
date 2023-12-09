@@ -8,10 +8,19 @@ type ButtonProps = React.DetailedHTMLProps<
   HTMLButtonElement
 > & {
   label?: string;
+  $bgColor?: string;
 };
 
-const Button = ({ label, ...props }: ButtonProps): JSX.Element => {
-  return <ButtonStyle {...props}>{label}</ButtonStyle>;
+const Button = ({
+  label,
+  $bgColor,
+  ...props
+}: ButtonProps): JSX.Element => {
+  return (
+    <ButtonStyle $bgColor={$bgColor} {...props}>
+      {label}
+    </ButtonStyle>
+  );
 };
 
 export { Button };
