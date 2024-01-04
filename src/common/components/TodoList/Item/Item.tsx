@@ -12,6 +12,7 @@ type ItemProps = {
 const Item = ({onRemove, index, value, ...props}: ItemProps): JSX.Element => {
   return (
     <ItemWrapper>
+      <Button label="✓" $bgColor="#00a3cc" />
       <Input value={value} {...props} />
       <Button label="-" $bgColor="#F75143" onClick={() => onRemove(index)} />
     </ItemWrapper>
