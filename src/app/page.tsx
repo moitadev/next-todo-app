@@ -1,7 +1,7 @@
 'use client';
 
 import { Container, Item, TaskInput } from '@/common';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledTitle = styled.h1`
@@ -33,6 +33,10 @@ export default function Home() {
     
     setItems(itemsCopy);
   };
+
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
 
   return (
     <Container>
